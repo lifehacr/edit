@@ -17,7 +17,7 @@
 import {
   FeedbackSchema,
   getFeedbackOption
-} from '../../docs/.vitepress/types/Feedback'
+} from '../../docs/.vitepress/types/Feedback.js'
 
 export default defineEventHandler(async (event) => {
   const { message, page, type, heading } = await readValidatedBody(

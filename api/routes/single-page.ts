@@ -52,9 +52,14 @@ export default defineCachedEventHandler(
 
     const contents = await Promise.all(
       files.map(async (file) => {
-        const content = await $fetch<string>(file.url)
-
-        return content
+        const res = await fetch(file.url)
+        if (!res.ok) {
+          throw createError({
+            statusCode: res.status,
+            statusMessage: `Failed to fetch ${file.name}`
+          })
+        }
+        return await res.text()
       })
     )
     body += contents.join('\n\n')
