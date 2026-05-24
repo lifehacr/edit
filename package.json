@@ -20,7 +20,8 @@
     "lint": "eslint .",
     "lint:md": "node scripts/lint-markdown.js",
     "og:dev": "x-satori -t ./docs/.vitepress/hooks/Template.vue -c ./docs/.vitepress/hooks/satoriConfig.ts --dev",
-    "prepare": "simple-git-hooks"
+    "prepare": "simple-git-hooks",
+    "build": "pnpm api:build"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm format && pnpm lint && pnpm lint:md"
